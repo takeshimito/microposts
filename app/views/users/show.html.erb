@@ -1,0 +1,28 @@
+<div class="row">
+  <aside class="col-sm-4">
+    <div class="card">
+      <div class="card-header">
+          <h3 calss="card-title"><%= @user.name %></h3>
+          <h6　class="card-subtitle"><%= @user.age %>歳</h6></h3>
+      </div>
+      <div class="card-body">
+        <img class="rounded img-fluid" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="">
+      </div>
+      <div class="card-body">
+        <h5><%= @user.coment %></h5>
+      </div>
+    </div>
+  </aside>
+  <div class="col-sm-8">
+    <ul class="nav nav-tabs nav-justified mb-3">
+      <li class="nav-item">
+        <a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">Microposts
+        <span class="badge badge-secondary"><%= @count_microposts %></span></a>
+        </li>
+      <li class="nav-item"><a href="#" class="nav-link">Followings</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Followers</a></li>
+    </ul>
+  </div>
+  <%= link_to 'アカウントを削除する', @users, method: :delete, data: { confirm: '本当に退会してよろしいですか？' }, class: 'btn btn-danger' %>
+  <br><%= link_to 'アカウントを編集する', edit_user_path, class: 'btn btn-primary' %>
+</div>
