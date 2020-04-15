@@ -3,13 +3,9 @@
     <div class="card">
       <div class="card-header">
           <h3 calss="card-title"><%= @user.name %></h3>
-          <h6　class="card-subtitle"><%= @user.age %>歳</h6></h3>
       </div>
       <div class="card-body">
         <img class="rounded img-fluid" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="">
-      </div>
-      <div class="card-body">
-        <h5><%= @user.coment %></h5>
       </div>
     </div>
     <%= render 'relationships/follow_button', user: @user %>
@@ -21,6 +17,4 @@
       <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>">Followers  <span class="badge badge-secondary"><%= @count_followers %></span></a></li>
     </ul>
   </div>
-  <%= link_to 'アカウントを削除する', @users, method: :delete, data: { confirm: '本当に退会してよろしいですか？' }, class: 'btn btn-danger' %>
-  <br><%= link_to 'アカウントを編集する', edit_user_path, class: 'btn btn-primary' %>
 </div>
