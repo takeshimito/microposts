@@ -48,10 +48,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
- adapter: postgresql
+  adapter: postgresql
   encoding: unicode
   pool: 5
-  database: message-board_production
-  username: message-board
-  password: <%= ENV['MESSAGE-BOARD_DATABASE_PASSWORD'] %>
+  database: microposts_1_production
+  username: microposts_1
+  password: <%= ENV['MICROPOSTS_1_DATABASE_PASSWORD'] %>
