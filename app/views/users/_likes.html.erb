@@ -1,0 +1,20 @@
+<% if microposts.any? %>
+  <ul class="list-unstyled">
+    <% microposts.each do |micropost| %>
+      <li class="media">
+        <div class="media-body">
+          <div>
+            <%= micropost.content %>
+          </div>
+          <div>
+            <p>
+              <%= link_to 'View This Post', micropost_path(micropost) %>
+            </p>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <%= paginate microposts %>
+
+<% end %>

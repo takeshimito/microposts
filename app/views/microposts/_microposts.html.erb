@@ -1,7 +1,5 @@
 <ul class="list-unstyled">
-  
   <% microposts.each do |micropost| %>
-
     <li class="media mb-3">
       <img class="mr-2 rounded" src="<%= gravatar_url(micropost.user, { size: 50 }) %>" alt="">
       <div class="media-body">
@@ -16,6 +14,8 @@
           <% if current_user == micropost.user %>
             <%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
           <% end %>
+          <%= render 'favorites/favorite_button',  micropost: micropost %>
+          <!-- @micropostインスタンスをmicropostローカル変数として取得 -->
         </div>
       </div>
     </li>
